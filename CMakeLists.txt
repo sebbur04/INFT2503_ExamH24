@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 4.0)
+cmake_minimum_required(VERSION 3.10) #Obligatorisk med Cmake versjon 3, ikke 4
 project(Oblig1)
 
 set(CMAKE_CXX_STANDARD 20)
