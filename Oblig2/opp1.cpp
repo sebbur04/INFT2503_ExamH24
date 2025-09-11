@@ -6,6 +6,8 @@ using namespace std;
 // Oppgave 1 - DEL A
 int main()
 {
+    cout << "Oppgave 1" << endl;
+    cout << "-------- Del A -----------" << endl;
     //Kopierer følgende verdier fra øvingen
     int i = 3;
     int j = 5;

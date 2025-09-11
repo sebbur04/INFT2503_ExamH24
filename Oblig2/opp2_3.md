@@ -15,13 +15,14 @@ Programmet vil ikke skrive til et tilfeldig sted, I praksis vil programmet krasj
 
 ## Oppgave 3 - Teorioppgave
 Finn ting som kan gå galt i følgende programbit:
+Feil er kommentert inline i koden
 ````c++
-char text[5];
+char text[5]; //Kan bare innholde 4 tegn + nullterminator
 char *pointer = text;
-char search_for = 'e';
-cin >> text;
-while (*pointer != search_for) {
+char search_for = 'e'; 
+cin >> text; //Hvis brukeren skriver inn mer enn 4 tegn, vil det føre til buffer overflow
+while (*pointer != search_for) { //Om e ikke finnes i strengen, vil ikke while løkken stoppe
 *pointer = search_for;
 pointer++;
-}
+} // Løkken stopper om den finner e, hvis ikke kræsjer programmet
 ````
