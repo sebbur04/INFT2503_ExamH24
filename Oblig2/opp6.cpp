@@ -1,37 +1,28 @@
-//
-// Created by Sebastian E Burmo on 01/09/2025.
-//
-
 #include <iostream>
-#include <array>
-#include <vector>
 using namespace std;
 
+// Finner summen av elementene i en tabell
+int find_sum(const int *table, int length) {
+    int sum = 0;
+    // Her går man i gjennom alle elementene og summerer dem
+    for (int i = 0; i < length; i++) {
+        sum += *(table + i);
+    }
+    return sum;
+}
+
 int main() {
-    // Lage en tabell
-    {
-        const int table_length = 20;
-        int table[table_length];
+    const int table_length = 20; // Antall elementer i tabellen
+    int table[table_length]; // Oppretter tabellen
 
-        for (int i = 0; i < table_length; i++)
-        {
-            // *(table + i) = i + 1;
-            table[i] = i + 1;
-        }
-
-        cout << "Sum 10 første: " << find_sum(table, 10) << endl;
-        cout << "Sum 5 neste: " << find_sum(&table[10], 5) << endl;
-        cout << "Sum 5 siste: " << find_sum(table + 15, 5) << endl;
-
-        return 0;
+    // Fyller tabellen med tallene 1 til 20
+    for (int i = 0; i < table_length; i++) {
+        table[i] = i + 1;
     }
-        int find_sum(const int *table, int length)
-    {
-        int sum = 0;
-        for (int i = 0; i < length; i++) {
-            sum+= *(table + i);
 
-            return sum;
-        }
-    }
+    cout << "Summen av de 10 første: " << find_sum(table, 10) << endl;
+    cout << "Summen av de 5 neste: " << find_sum(&table[10], 5) << endl;
+    cout << "Summen av de 5 siste: " << find_sum(table + 15, 5) << endl;
+
+    return 0;
 }
