@@ -3,32 +3,48 @@
 #include <iostream>
 using namespace std;
 
-
 // Oppgave 1 - Rett opp feilene i følgende klasse:
-int main()
-{
-    const double pi = 3.141592;
+
+const double pi = 3.141592;
+
+//Selve objekten skal ikke ligge i main, men blir kallet opp i main, for å verfisere at det fungerer
 
     class Circle {
+
     public:
-        circle(double radius_);
+        Circle(double radius_);
         int get_area() const;
         double get_circumference() const;
-    private double radius;
-    }
+
+    private:
+        double radius;
+    };
 
     // ==> Implementasjon av klassen Circle
 
-    public Circle::Circle(double radius_) : radius_(radius) {}
+    Circle::Circle(double radius_) : radius(radius_) {} //Skal ikke være public, skrivefeil i radius
 
-    int Circle::get_area() {
+    int Circle::get_area() const {
         return pi * radius * radius;
     }
 
-    Circle::get_circumference() const {
-        circumference = 2.0 * pi * radius;
+    double Circle::get_circumference() const {//Må legge til double
+
+        double circumference = 2.0 * pi * radius; //Må legge til double
         return circumference;
+
     }
 
-    return 0;
-}
+
+//Bruker en main for å sjekke om objektene ovenfor fungerer som de skal
+// Selve konstruktøren skal ikke ligge i main
+ int main () {
+
+        Circle circle (10); //Definere radius
+
+        double circumference = circle.get_circumference();
+
+        cout << "Ved a kalle opp circumference far vi opp omkretsen til sirkel med radius pa 10cm" << circumference << endl;
+
+     return 0;
+ }
