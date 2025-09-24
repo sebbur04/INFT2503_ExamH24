@@ -5,7 +5,6 @@
 #include "commodity.hpp"
 #include <iostream>
 #include <string>
-
 using namespace std;
 
 int main() {
@@ -28,6 +27,7 @@ int main() {
     cout << "Prisen for " << quantity << " kg er " << commodity.get_price_with_sales_tax(quantity)
          << " med moms" << endl;
 }
+
 
 /* Utskrift:
 Varenavn: Norvegia, varenr: 123 Pris pr enhet: 73.5
