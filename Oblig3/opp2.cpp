@@ -28,6 +28,9 @@ double Circle::get_circumference() const {
     return circumference;
 }
 
+//----------------------------------------------------------------//
+//   Selve oppgaven, da jeg har skilt ut opp1.cpp og opp2.cpp     //
+//----------------------------------------------------------------//
 //Oppgave 2 - Følgende klientprogram bruker klassen fra oppgave 1. Fyll ut det som mangler (merket med /*---*/):
 
 int main() {

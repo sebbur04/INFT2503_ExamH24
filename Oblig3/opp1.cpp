@@ -36,13 +36,13 @@ const double pi = 3.141592;
     }
 
 
-//Bruker en main for å sjekke om objektene ovenfor fungerer som de skal
+//Bruker en main og bruker klassen for å sjekke om objektene ovenfor fungerer som de skal
 // Selve konstruktøren skal ikke ligge i main
  int main () {
 
-        Circle circle (10); //Definere radius
+        Circle circle (10); //Definere radius i sirklen
 
-        double circumference = circle.get_circumference();
+        double circumference = circle.get_circumference(); // Finne omkretsen
 
         cout << "Ved a kalle opp circumference far vi opp omkretsen til sirkel med radius pa 10cm" << circumference << endl;
 

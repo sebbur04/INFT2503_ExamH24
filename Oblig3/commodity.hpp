@@ -3,6 +3,7 @@
 //
 //Header++ fil for opp3.cpp - Klassedeklarasjon for Commodity
 #include <string>
+#pragma once
 using namespace std;
 
 //Definisjon av klassen Commodity i henhold til klassediagrammet
@@ -16,7 +17,6 @@ public:
     double get_price_with_sales_tax() const;
     double get_price_with_sales_tax(double quantity) const;
     void set_price(double new_price);
-
 private:
     string name;
     int id;
