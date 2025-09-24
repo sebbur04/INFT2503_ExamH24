@@ -1,4 +1,4 @@
-### Øving 4: Konteinere, auto og lambda
+# Øving 4: Konteinere, auto og lambda
 ## Oppgave 1
 Lag et lite program:
 
