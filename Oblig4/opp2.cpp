@@ -1,5 +1,11 @@
+//
+// Created by Sebastian E Burmo on 25/09/2025
+// Oppgave 2 - Kombinerte navn program
+// Source code: https://gitlab.com/ntnu-iini4003/gtkmm-example
+
 #include <gtkmm.h>
 
+// Create a class with all widgets as members
 class NameWindow : public Gtk::Window {
 public:
     Gtk::Box main_box;
@@ -14,28 +20,28 @@ public:
     NameWindow() : main_box(Gtk::ORIENTATION_VERTICAL, 10),
                    name_box(Gtk::ORIENTATION_HORIZONTAL, 10) {
 
-        // Set window properties
-        set_title("Name Combiner");
+        // Set window properties with size and width
+        set_title("ØVING 4");
         set_default_size(400, 200);
         set_border_width(10);
 
-        // Set up labels
+        // Application Labels
         first_name_label.set_text("First name:");
         last_name_label.set_text("Last name:");
 
-        // Set up button
+        // Button properties
         combine_button.set_label("Combine names");
         combine_button.set_sensitive(false); // Initially disabled
 
-        // Set up result label
+        // Set up result label, empty string which fills with content when button pressed
         result_label.set_text("");
 
-        // Pack first name widgets
+        // First name
         Gtk::Box* first_name_box = Gtk::make_managed<Gtk::Box>(Gtk::ORIENTATION_HORIZONTAL, 5);
         first_name_box->pack_start(first_name_label, false, false);
         first_name_box->pack_start(first_name_entry, true, true);
 
-        // Pack last name widgets
+        // Last name
         Gtk::Box* last_name_box = Gtk::make_managed<Gtk::Box>(Gtk::ORIENTATION_HORIZONTAL, 5);
         last_name_box->pack_start(last_name_label, false, false);
         last_name_box->pack_start(last_name_entry, true, true);
@@ -65,7 +71,7 @@ private:
                           !last_name_entry.get_text().empty();
         combine_button.set_sensitive(both_filled);
 
-        // Clear result when entries change
+        // Clear result if entries change
         result_label.set_text("");
     }
 
@@ -73,12 +79,13 @@ private:
         std::string first_name = first_name_entry.get_text();
         std::string last_name = last_name_entry.get_text();
         std::string full_name = first_name + " " + last_name;
-        result_label.set_text("Full name: " + full_name);
+        result_label.set_text("Names Combined: " + full_name); // Show combined names as result in the empty string in resultlabel
     }
 };
 
+// The same main as the gtkmm example repo
 int main() {
-    auto app = Gtk::Application::create("org.example.namecombiner");
+    auto app = Gtk::Application::create();
     NameWindow window;
     return app->run(window);
 }

@@ -1,3 +1,8 @@
+//
+// Created by Sebastian E Burmo on 25/09/2025
+// Oppgave 1 - Vektor operasjoner
+
+
 #include <iostream>
 #include <vector>
 #include <algorithm>
