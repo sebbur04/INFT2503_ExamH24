@@ -3,7 +3,7 @@ project(Oblig4)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++1y -Wall -Wextra")
-
+# Source code: https://gitlab.com/ntnu-iini4003/gtkmm-example to get gtkmm to work on Silicon Mac
 # Handle Apple Silicon vs Intel architectures
 if(APPLE)
     # Check if we're on Apple Silicon
