@@ -1,6 +1,10 @@
 //
-// Created by Sebastian E Burmo on 03/10/2025.
+// Created by Sebastian E Burmo on 10/10/2025.
 //
+
+// Oppgave 1
+// Kildekode: https://eidheim.folk.ntnu.no/c++/5-liv-og-død-smarte-pekere-og-polymorfi/exercise.html
+
 
 #include <iostream>
 #include <memory>
@@ -35,18 +39,19 @@ public:
   };
 
   // ------- ------- ------- ------- ------- ------- ------- ------- -------
-  // Samme som fra Oppgave 1
   // Fullfør implementasjonene der det står // missing implementations.
   // King arver fra Piece
   class King : public Piece {
-  public:
+    // missing implementations - Oppgave 1
+  public: // Må sette opp public class for King
     King(Color color) : Piece(color){}
 
     string type() const override {
-      return color_string() + " king";
+      return color_string(); + "king";
     }
 
     bool valid_move(int from_x, int from_y, int to_x, int to_y) const override {
+      // Kan spare skriving ved å implementere dx og dy som variabler for absoluttverdien av forskjellen mellom to_x og from_x, og to_y og from_y
       int dx = abs(to_x - from_x);
       int dy = abs(to_y - from_y);
       return (dx <= 1 && dy <= 1 && (dx != 0 || dy != 0));
@@ -54,9 +59,9 @@ public:
   };
 
   class Knight : public Piece {
-  public:
+    // missing implementations - Oppgave 1
+  public: // Må sette opp public class for Knight
     Knight(Color color) : Piece(color) {}
-
     string type() const override {
       return color_string() + " knight";
     }
@@ -113,40 +118,7 @@ public:
       return false;
     }
   }
-
-  // Oppgave 2 - Lag en tekstutskrift av sjakkbrettet som viser rutene og hvilke brikker
-  // som eventuelt er i de ulike brikkene etter hvert trekk.
-  // Kan løse dette med å opprettet et brett med 8x8 ruter der brikken er representert som små tegn
-
-  void print(ostream &os) const {
-    for(int row = 7; row >= 0; row--) {
-      os << (row + 1) << " ";
-      for(int col = 0; col < 8; col++) {
-        auto &piece = squares[col][row];
-        if (piece) {
-          // Vis K+farge for king, N+farge for knight
-          string type_str = piece->type();
-          if (type_str.find("king") != string::npos) {
-            os << (piece->color == Color::WHITE ? "WK" : "BK");
-          } else if (type_str.find("knight") != string::npos) {
-            os << (piece->color == Color::WHITE ? "WN" : "BN");
-          }
-          os << " ";
-        } else {
-          os << " . "; // Tom rute uten brikke
-        }
-      }
-      os << "\n";
-    }
-    os << "  a  b  c  d  e  f  g  h "; // Rute bokstavene nederst på brettet
-  }
 };
-
-// operator<< utenfor klassen (ikke friend, ikke member)
-ostream &operator<<(ostream &os, const ChessBoard &board) {
-  board.print(os);
-  return os;
-}
 
 int main() {
   ChessBoard board;
@@ -165,32 +137,14 @@ int main() {
   board.move_piece("b1", "b2");
   cout << endl;
 
-  cout << "Brikker" << endl;
-  cout << "BN equals a Black Knight" << endl;
-  cout << "BK equals a Black King" << endl;
-  cout << "WN equals a White Knight" << endl;
-  cout << "WK equals a White King" << endl;
-
-
-  // Må legge til board sånn at det er synlig i utskruften/terminalen
   cout << "A simulated game:" << endl;
-  cout << board << endl;
   board.move_piece("e1", "e2");
-  cout << board << endl;
   board.move_piece("g8", "h6");
-  cout << board << endl;
   board.move_piece("b1", "c3");
-  cout << board << endl;
   board.move_piece("h6", "g8");
-  cout << board << endl;
   board.move_piece("c3", "d5");
-  cout << board << endl;
   board.move_piece("g8", "h6");
-  cout << board << endl;
   board.move_piece("d5", "f6");
-  cout << board << endl;
   board.move_piece("h6", "g8");
-  cout << board << endl;
   board.move_piece("f6", "e8");
-  cout << board << endl;
 }
