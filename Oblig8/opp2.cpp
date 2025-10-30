@@ -1,7 +1,30 @@
 //
-// Created by Sebastian E Burmo on 10/10/2025.
+// Created by sebas on 30/10/2025.
 //
-// Based on: https://gitlab.com/ntnu-iini4003/examples6/-/blob/master/example6.cpp
+// Based on: https://eidheim.folk.ntnu.no/c++/8-templates/exercise.html for the main c++ code
 
-#include <boost/asio.hpp>
 #include <iostream>
+#include "pair.hpp"
+
+int main() {
+    Pair<double, int> p1(3.5, 14);
+    Pair<double, int> p2(2.1, 7);
+    cout << "p1: " << p1.first << ", " << p1.second << endl;
+    cout << "p2: " << p2.first << ", " << p2.second << endl;
+
+    if (p1 > p2)
+        cout << "p1 er størst" << endl;
+    else
+        cout << "p2 er størst" << endl;
+
+    auto sum = p1 + p2;
+    cout << "Sum: " << sum.first << ", " << sum.second << endl;
+    return 0;
+}
+
+/* Utskrift:
+p1: 3.5, 14
+p2: 2.1, 7
+p1 er størst
+Sum: 5.6, 21
+*/
