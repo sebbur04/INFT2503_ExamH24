@@ -13,12 +13,8 @@ public:
 
 class Square : public Object {
 public:
-    double side_length;
-
-    Square(double side_length) : side_length(side_length) {}
-
-    function<double(double)> area_function() const override {
-        return [this](double) {
+    function<double(double)> area_function() const override { //LF: function<double(double)> area_function()
+        return [](double side_length) -> double { //LF: return [](double side_length) -> double
             return side_length * side_length;
         };
     }
@@ -26,12 +22,8 @@ public:
 
 class Circle : public Object {
 public:
-    double radius;
-
-    Circle(double radius) : radius(radius) {}
-
-    function<double(double)> area_function() const override {
-        return [this](double) {
+    function<double(double)> area_function() const override { //LF: function<double(double)> area_function()
+        return [](double radius) { //LF: return [](double radius)
             return 3.14 * radius * radius;
         };
     }
@@ -39,12 +31,8 @@ public:
 
 int main() {
     vector<unique_ptr<Object>> objects;
-
-    objects.emplace_back(new Square(2));
-    objects.emplace_back(new Circle(2));
-
+    objects.emplace_back(new Square());
+    objects.emplace_back(new Circle());
     for (auto &object : objects)
         cout << object->area_function()(2.) << endl;
-
-    return 0;
 }
